@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+int main() {
+    double numer;
+    double sum = 0;
+    double max = 0;
+    int liczba = 0;
+
+    printf("Wprowadzaj liczby (nizsza od 0 konczy wprowadzanie):\n");
+
+    while (1) {
+        scanf_s("%lf", &numer);
+
+        if (numer < 0) {
+            break; // kończy pętlę, gdy liczba jest mniejsza od 0
+        }
+
+        sum += numer; // dodaj liczbę do sumy
+        liczba++; // zwiększ licznik liczb
+
+        // Sprawdzenie wartości maksymalnej
+        if (liczba == 1 || numer > max) {
+            max = numer; // aktualizacja maksymalnej wartości
+        }
+    }
+
+    // Sprawdzenie, czy wprowadzono jakiekolwiek liczby
+    if (liczba > 0) {
+        double srednia = sum / liczba; // obliczenie średniej
+        printf("Suma: %.2lf\n", sum);
+        printf("Średnia: %.2lf\n", srednia);
+        printf("Wartość maksymalna: %.2lf\n", max);
+    }
+    else {
+        printf("Nie wprowadzono żadnych liczb.\n");
+    }
+
+    return 0;
+}
